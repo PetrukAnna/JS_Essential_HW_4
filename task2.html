@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Functions </title>
+
+		<script type="text/javascript">
+			
+			function operation(sign, op1, op2) {
+				if(/[A-Za-zА-Яа-яЁё~!@#$%^&*/+]+/.exec(op1) != null) {
+					document.write("First value: " + op1 + " <span style='color:red;'>include letters or symbols</span> <br/>");
+				} 
+				if(/[A-Za-zА-Яа-яЁё~!@#$%^&*/+]+/.exec(op2) != null){
+					document.write("Second value: " + op2 + " <span style='color:red;'>include letters or symbols</span> <br/>");
+				} 
+
+				
+				op1 = parseInt(op1);
+		       	op2 = parseInt(op2);
+
+				switch(sign) {
+					case "+":
+						result = op1 + op2;
+						break;
+					case "-":
+						result = op1 - op2;
+						break;
+					case "*":
+						result = op1 * op2;
+						break;
+					case "/":
+						result = op1 / op2;
+						break;
+					default:
+						document.write(sign + " - <span style='color:red;'>is not a sign!</span> <br/>");
+				}
+
+				return result;
+			}
+			
+			var operator1 = prompt("Input first value: ", "");
+			var sign = prompt("Input sign: ", "");
+			var operator2 = prompt("Input second value: ", "");
+			var result = operation(sign, operator1, operator2);
+			
+			if(operator2 == "0" && sign == "/") {
+				document.write(operator1 + " " + sign + " " + operator2 + "<span style='color:red;'> - you can not divide by zero </span><br/>");
+			} else if(isNaN(result)) {
+				document.write("");
+			} else if(result != undefined) {
+				document.write(operator1 + " " + sign + " " + operator2 + " = " + result);
+			} 
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

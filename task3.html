@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Functions </title>
+		<script type="text/javascript">
+			
+			function checking(val) {
+
+				if(val == 0) {
+					document.write("The value: <span style='color:red;'>" + val + "</span><br/>");
+					document.write("<p> has NO sign </p>");
+					document.write("<p> is NOT a prime number </p>");
+					document.write("<p> can NOT divide into any of the numbers </p>");
+				} else if (val < 0) {
+					document.write("The value: <span style='color:red;'>" + val + "</span><br/>");
+					document.write("<p> has negative sign </p>");
+					document.write("<p> is NOT a prime number </p>");
+					checkedDivision(val);
+				} else if (val > 0) {
+					document.write("The value: <span style='color:red;'>" + val + "</span><br/>");
+					document.write("<p> has positive sign </p>");
+
+					if(val == 2) {
+						document.write("<p> is a prime number </p>");
+						checkedDivision(val);
+					} else if(val > 2) {
+						var min = 2;
+						var max = Math.round(Math.sqrt(val));
+						var checker = 0;
+						for(var i = min; i <= max; i++) {
+							if(val % i != 0) {
+								++checker;
+							}
+						}
+						if(checker == (max-min)+1) {
+							document.write("<p> is a prime number </p>");
+							document.write("<p> can NOT divide into 2,3,5,6,9 </p>");
+						} else {
+							document.write("<p> is NOT a prime number </p>");
+							checkedDivision(val);
+						}
+					} else {
+						document.write("<p> is NOT a prime number </p>");
+						document.write("<p> can NOT divide into 2,3,5,6,9 </p>");
+					}
+				}
+
+				function checkedDivision(val) {
+
+					if(val % 2 == 0) {
+						document.write("<p> is divided by 2 </p>");
+					} else {
+						document.write("<p> is NOT divided by 2 </p>");
+					}
+
+					if(val % 3 == 0) {
+						document.write("<p> is divided by 3 </p>");
+					} else {
+						document.write("<p> is NOT divided by 3 </p>");
+					}
+
+					if(val % 5 == 0) {
+						document.write("<p> is divided by 5 </p>");
+					} else {
+						document.write("<p> is NOT divided by 5 </p>");
+					}
+
+					if(val % 6 == 0) {
+						document.write("<p> is divided by 6 </p>");
+					} else {
+						document.write("<p> is NOT divided by 6 </p>");
+					}
+
+					if(val % 9 == 0) {
+						document.write("<p> is divided by 9 </p>");
+					} else {
+						document.write("<p> is NOT divided by 9 </p>");
+					}
+				}
+			}
+
+			var value = prompt("Input a value: " , "");
+
+			if(value == null){
+				document.write("<span style='color:red;'>You did not enter any value!</span>");
+			} else if(/[A-Za-zА-Яа-яЁё~!@#$%^&*/+]+/.exec(value) != null){
+				document.write("The value: <span style='color:red;'>" + value + "</span> include letters or symbols");
+			} else {
+				value = parseFloat(value);
+				checking(value);
+			}
+
+			/*
+			function checkSign(val) {
+
+				if(val == 0) {
+					document.write("The value: " + val + " has no sign <br/>");
+				} else if(val > 0) {
+					document.write("The value: " + val + " has a positive sign <br/>");
+				} else if(val < 0) {
+					document.write("The value: " + val + " has a negative sign <br/>");
+				} 
+			}
+
+			function checkPrimeNumber(val) {
+				
+				if(val == 2) {
+					document.write("The value: " + val + " is a prime number <br/>");
+				} else if(val > 2) {
+					var min = 2;
+					var max = Math.round(Math.sqrt(val));
+					var checker = 0;
+					for(var i = min; i <= max; i++) {
+						if(val % i != 0) {
+							 ++checker;
+						}
+					}
+					if(checker == (max-min)+1) {
+						document.write("The value: " + val + " is a prime number <br/>");
+					} else {
+						document.write("The value: " + val + " is NOT a prime number <br/>");
+					}
+				}  else {
+					document.write("The value: " + val + " is NOT a prime number <br/>");
+				}
+			}
+
+			function checkedDivision(val) {
+
+				if(val % 5 == 0) {
+					document.write("The value: " + val + " is divided by 5 <br/>");
+				} else {
+					document.write("The value: " + val + " is NOT divided by 5 <br/>");
+				}
+
+				if(val % 6 == 0) {
+					document.write("The value: " + val + " is divided by 2 <br/>");
+					document.write("The value: " + val + " is divided by 6 <br/>");
+				} else {
+					document.write("The value: " + val + " is NOT divided by 2 <br/>");
+					document.write("The value: " + val + " is NOT divided by 6 <br/>");
+				}
+
+				if(val % 9 == 0) {
+					document.write("The value: " + val + " is divided by 3 <br/>");
+					document.write("The value: " + val + " is divided by 9 <br/>");
+				} else {
+					document.write("The value: " + val + " is NOT divided by 3 <br/>");
+					document.write("The value: " + val + " is NOT divided by 9 <br/>");
+				}
+			}
+
+			var value = prompt("Input a value: " , "");
+			value = parseFloat(value);
+			checkSign(value);
+			checkPrimeNumber(value);
+			checkedDivision(value);*/
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
